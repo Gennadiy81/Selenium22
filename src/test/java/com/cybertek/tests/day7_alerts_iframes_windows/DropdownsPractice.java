@@ -6,6 +6,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
@@ -45,7 +46,29 @@ public class DropdownsPractice {
 
     }
 
-    public void teardownClass(){
+    @Test
+    public void tc2_simple_dropdowns_test(){
+        Select stateDropdown = new Select(driver.findElement(By.xpath("//select[@id='state']")));
+        stateDropdown.selectByVisibleText("Illinois");
+
+        stateDropdown.selectByValue("VA");
+
+        stateDropdown.selectByIndex(5);
+
+        String expectedOptionText = "California1";
+
+        String actualOptionText =  stateDropdown.getFirstSelectedOption().getText();
+        Assert.assertEquals(actualOptionText, expectedOptionText, "This message will print out if my test is Failing");
+
+
+
+
+    }
+
+    @AfterClass
+
+    public void teardownClass() throws InterruptedException {
+        Thread.sleep(5000);
         driver.close();
     }
 }
