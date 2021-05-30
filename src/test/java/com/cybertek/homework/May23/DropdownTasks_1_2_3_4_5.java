@@ -35,27 +35,27 @@ public class DropdownTasks_1_2_3_4_5 {
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         driver.get("http://practice.cybertekschool.com/dropdown");
-        WebElement stateSelection1 = driver.findElement(By.xpath("(//select[@id='state']//option)[15]"));
-        Thread.sleep(2000);
-       stateSelection1.click();
-        Select oSelect = new Select(stateSelection1);
 
-        oSelect.selectByVisibleText("Illinois");
+
+      // stateSelection1.click();
+        Select oSelect = new Select(driver.findElement(By.xpath("(//select[@id='state']//option")));
+
+        oSelect.selectByValue("IL");
+
 
 //        driver.get("http://practice.cybertekschool.com/dropdown");
 //
-//        WebElement stateSelection2 = driver.findElement(By.xpath("(//select[@id='state']//option)[48]"));
+//       WebElement stateSelection2 = driver.findElement(By.xpath("(//select[@id='state']//option)[48]"));        Thread.sleep(2000);
+////       // stateSelection2.click();
+//
+
+
+
+
+//        stateSelection1 = driver.findElement(By.xpath("(//select[@id='state']//option)[35]"));
 //        Thread.sleep(2000);
-//       // stateSelection2.click();
-
-
-
-
-
-//        stateSelection = driver.findElement(By.xpath("(//select[@id='state']//option)[35]"));
-//        Thread.sleep(2000);
-//        stateSelection.click();
-//        oSelect = new Select(stateSelection);
+//        stateSelection1.click();
+//        oSelect = new Select(stateSelection1);
 //        oSelect.selectByVisibleText("California");
 
 
