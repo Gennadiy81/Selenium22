@@ -55,7 +55,7 @@ public class DropdownsPractice {
 
         stateDropdown.selectByIndex(5);
 
-        String expectedOptionText = "California1";
+        String expectedOptionText = "California";
 
         String actualOptionText =  stateDropdown.getFirstSelectedOption().getText();
         Assert.assertEquals(actualOptionText, expectedOptionText, "This message will print out if my test is Failing");
@@ -69,6 +69,6 @@ public class DropdownsPractice {
 
     public void teardownClass() throws InterruptedException {
         Thread.sleep(5000);
-        driver.close();
+        //driver.close();
     }
 }
