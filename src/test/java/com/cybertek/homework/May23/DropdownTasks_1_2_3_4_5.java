@@ -38,7 +38,7 @@ public class DropdownTasks_1_2_3_4_5 {
 
 
       // stateSelection1.click();
-        Select oSelect = new Select(driver.findElement(By.xpath("(//select[@id='state']//option")));
+        Select oSelect = new Select(driver.findElement(By.xpath("(//select[@id='state']")));
 
         oSelect.selectByValue("IL");
 
