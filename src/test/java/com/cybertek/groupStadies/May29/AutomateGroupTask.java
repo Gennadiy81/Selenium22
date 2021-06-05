@@ -35,14 +35,14 @@ public class AutomateGroupTask {
          fleet.click();
          Thread.sleep(1000);
          WebElement vehicleOption = driver.findElement(By.xpath("//span[.='Vehicles']"));
-        Assert.assertTrue(vehicleOption.getText().equals("Vehicles"));
+        Assert.assertEquals(vehicleOption.getText(), "Vehicles", "Test Fail");
         vehicleOption.click();
 
         Assert.assertEquals(driver.getTitle(), "Dashboard");
 
         driver.findElement(By.xpath("(//td[@data-column-label='License Plate'])[1]")).click();
-        WebElement carInfo = driver.findElement(By.xpath("//h1[@class='user-name']"));
-        Assert.assertEquals(carInfo.getText(), "Cybertek123 Spartan Alaska 2019 Black");
+        WebElement carInfo = driver.findElement(By.xpath("//span[.='General Information']"));
+        Assert.assertEquals(carInfo.getText(), "General Information");
     }
 
     @Test
