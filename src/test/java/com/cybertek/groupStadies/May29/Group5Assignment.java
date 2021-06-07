@@ -34,7 +34,9 @@ public class Group5Assignment {
         WebElement fleet = driver.findElement(By.xpath("(//span[@class='title title-level-1'])[1]"));
         fleet.click();
         WebElement options = driver.findElement(By.xpath("(//span[@class='title title-level-2'])[1]"));
+
         options.click();
+
 
 
 
