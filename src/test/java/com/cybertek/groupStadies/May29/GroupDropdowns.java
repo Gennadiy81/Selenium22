@@ -58,6 +58,42 @@ public class GroupDropdowns {
         Select selClass = new Select(classMy);
         selClass.selectByVisibleText("Business / First");
 
+//        WebElement a = driver.findElement(By.id("username")).getText();
+//       WebElement b =  driver.findElement(By.id("username")).isDisplayed();
+       // WebElement c =driver.findElement(By.id("username")).getAttribute("class");
+WebElement b = driver.findElement(By.id("username"));
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
     }
