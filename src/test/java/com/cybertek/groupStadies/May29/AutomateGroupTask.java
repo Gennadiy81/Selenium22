@@ -71,6 +71,7 @@ public class AutomateGroupTask {
         WebElement yearOptions = driver.findElement(By.xpath("//select[@data-handler='selectYear']"));
         Select selectYear = new Select(yearOptions);
         selectYear.selectByValue("2022");
+        Thread.sleep(2000);
 
         driver.findElement(By.xpath("(//td[@data-month='9'])[8]")).click();
 
