@@ -24,4 +24,15 @@ public class TableUtils {
          }
          Assert.fail("The expected name is not on the table");
     }
+    public static void printNamesAndEmails(WebDriver driver){
+        List<WebElement> allNames = driver.findElements(By.xpath("//table[@id='table1']//tbody//td[2]"));
+        List<WebElement> allEmails = driver.findElements(By.xpath("//table[@id='table1']//tbody//td[3]"));
+        int count =0;
+        for(int i = 0; i < allNames.size(); i++){
+            count += 1;
+            System.out.println("Name" + count + ": " + allNames.get(i).getText() + ", " + "Email" + count + ": " + allEmails.get(i).getText());
+            ////table[@id='table1']//td[.='Tim']//following-sibling::td[.='$50.00']
+        }
+
+    }
 }

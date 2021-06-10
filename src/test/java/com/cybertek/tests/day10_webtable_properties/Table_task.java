@@ -36,4 +36,10 @@ public class Table_task {
     public void task4_verify_order_method(){
         TableUtils.verifyOrder(driver, "Frank");
     }
+
+    @Test
+    public void task5_print_names_and_emails(){
+        TableUtils.printNamesAndEmails(driver);
+
+    }
 }
