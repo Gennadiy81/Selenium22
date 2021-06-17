@@ -5,8 +5,11 @@ import com.cybertek.utilities.WebDriverFactory;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
+import org.testng.asserts.SoftAssert;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -47,7 +50,13 @@ public class WindowHandle {
         Alert alert = driver.switchTo().alert();
         alert.sendKeys("Gennadiy");
         alert.accept();
+        SoftAssert softAssert = new SoftAssert();
+        String str = driver.findElement(By.id("output")).getText();
+        System.out.println(str);
+        softAssert.assertAll();
+        Assert.assertEquals(str, "You entered text Gennadiy in propmt popupkk");
 
+        driver.switchTo().window(parentWindowHandle);
     }
 }
 
