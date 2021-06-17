@@ -1,5 +1,6 @@
 package com.cybertek.tests.day10_webtable_properties;
 
+import com.cybertek.tests.base.TestBase;
 import com.cybertek.utilities.ConfigurationReader;
 import com.cybertek.utilities.TableUtils;
 import com.cybertek.utilities.WebDriverFactory;
@@ -12,19 +13,14 @@ import org.testng.annotations.Test;
 
 import java.util.concurrent.TimeUnit;
 
-public class Table_task {
-    WebDriver driver;
-    @BeforeMethod
-    public void setupMethod(){
-        String browser = ConfigurationReader.getProperty("browser");
-        String url = ConfigurationReader.getProperty("dataTablesUrl");
-        driver = WebDriverFactory.getDriver(browser);
-        driver.manage().timeouts().implicitlyWait(15,TimeUnit.SECONDS);
-        driver.manage().window().maximize();
-        driver.get(url);
-    }
+public class Table_task extends TestBase {
+
+
+
     @Test
     public void task3_return_tims_due_amount(){
+        String url = ConfigurationReader.getProperty("dataTablesUrl");
+        driver.get(url);
         // //table[@id='table1']//td[.='Tim']/../td[4]
         WebElement timsDueAmount = driver.findElement(By.xpath("//table[@id='table1']//td[.='Tim']/following-sibling::td[2]"));
         String actualTimResult = timsDueAmount.getText();
