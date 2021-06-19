@@ -1,6 +1,7 @@
 package com.cybertek.groupStadies.Jun11_getWindowHandle;
 
 import com.cybertek.utilities.ConfigurationReader;
+import com.cybertek.utilities.Driver;
 import com.cybertek.utilities.WebDriverFactory;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
@@ -17,46 +18,49 @@ import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
 public class WindowHandle {
-    WebDriver driver;
+ //   WebDriver driver;
 
-    @BeforeMethod
-    public void setupMethod() {
-        String browser = ConfigurationReader.getProperty("browser");
-        driver = WebDriverFactory.getDriver(browser);
-        driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
-        driver.manage().window().maximize();
+//    @BeforeMethod
+//    public void setupMethod() {
+//        String browser = ConfigurationReader.getProperty("browser");
+//        driver = WebDriverFactory.getDriver(browser);
+//        driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
+//        driver.manage().window().maximize();
+//
+//        driver.get("https://www.hyrtutorials.com/p/window-handles-practice.html");
 
-        driver.get("https://www.hyrtutorials.com/p/window-handles-practice.html");
+ //   }
 
-    }
-
-    @Test
+   @Test
     public void tc1() throws InterruptedException {
-        String parentWindowHandle = driver.getWindowHandle();
+      //to find elements  Driver.getDriver().findElement();
+        Driver.getDriver().get("https://www.hyrtutorials.com/p/window-handles-practice.html");
+        String parentWindowHandle = Driver.getDriver().getWindowHandle();
 
-        driver.findElement(By.id("newTabsBtn")).click();
+        Driver.getDriver().findElement(By.id("newTabsBtn")).click();
         //driver.switchTo().window(parentWindowHandle);
-        Set<String> handles = driver.getWindowHandles();
+        Set<String> handles = Driver.getDriver().getWindowHandles();
 
         for (String each : handles) {
-            driver.switchTo().window(each);
-            if (driver.getTitle().contains("AlertsDemo")){
-                driver.switchTo().window(each);
+            Driver.getDriver().switchTo().window(each);
+            if (Driver.getDriver().getTitle().contains("AlertsDemo")){
+                //driver.switchTo().window(each);
                 break;
             }
         }
 
-        driver.findElement(By.id("promptBox")).click();
-        Alert alert = driver.switchTo().alert();
+        Driver.getDriver().findElement(By.id("promptBox")).click();
+        Alert alert = Driver.getDriver().switchTo().alert();
         alert.sendKeys("Gennadiy");
         alert.accept();
         SoftAssert softAssert = new SoftAssert();
-        String str = driver.findElement(By.id("output")).getText();
+        String str = Driver.getDriver().findElement(By.id("output")).getText();
         System.out.println(str);
+        softAssert.assertEquals(str, "You entered text Gennadiy in propmt popup");
+        //Assert.assertEquals(str, "You entered text Gennadiy in propmt popupkk");
         softAssert.assertAll();
-        Assert.assertEquals(str, "You entered text Gennadiy in propmt popupkk");
 
-        driver.switchTo().window(parentWindowHandle);
+        Driver.getDriver().switchTo().window(parentWindowHandle);
     }
 }
 
