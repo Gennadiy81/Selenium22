@@ -25,11 +25,13 @@ public class HoverOverTC15 {
     @Test
     public void doubleClickTC16(){
         Driver.getDriver().get("https://www.w3schools.com/tags/tryit.asp?filename=tryhtml5_ev_ondblclick2");
-        WebElement iframe = Driver.getDriver().findElement(By.xpath("//iframe[@id='iframeResult']"));
-        Driver.getDriver().switchTo().frame(iframe);
+        Driver.getDriver().switchTo().frame("iframeResult");
+
         WebElement textColor = Driver.getDriver().findElement(By.id("demo"));
+
         Actions actions = new Actions(Driver.getDriver());
         actions.doubleClick(textColor).perform();
+
         WebElement color = Driver.getDriver().findElement(By.xpath("//p[@style='color: red;']"));
         String elementAttribute = color.getAttribute("style");
         Assert.assertTrue(elementAttribute.contains("red"));
